@@ -81,7 +81,7 @@ The dataset is **imbalanced**: Positive reviews dominate, while Neutral reviews 
 
 Frequent terms such as *phone*, *camera*, *battery*, *performance* and *price* show which product aspects customers talk about most.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/09175901-8d65-4284-a0fb-5828f444b9e4" />" width="70%">
+  <img src="https://github.com/user-attachments/assets/09175901-8d65-4284-a0fb-5828f444b9e4" />"
 </p>
 
 ### Rating-based vs. VADER sentiment
@@ -94,7 +94,7 @@ Frequent terms such as *phone*, *camera*, *battery*, *performance* and *price* s
 
 VADER agrees well on clearly positive and negative reviews but struggles with mixed or neutral reviews, which motivated training a supervised model on the rating-based labels.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/897030dc-7744-4ff9-9ad9-bd8b9408c0c8" /> width="70%">
+  <img src="https://github.com/user-attachments/assets/897030dc-7744-4ff9-9ad9-bd8b9408c0c8" />
 </p>
 ##  Methodology
 
@@ -135,7 +135,7 @@ Classical machine-learning models Logistic Regression,Naive Bayes,Linear SVM wit
 Linear SVM was chosen as the final model based on **F1-score and the other evaluation metrics**. BERT epochs is decreased to 3,so it is fine tunning and increasing the epochs is not done because it is **high computational cost** (training time, memory, and inference latency) makes it a poor fit for a lightweight, freely hosted app. Linear SVM delivers competitive performance at a tiny fraction of the cost.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/fd1989a8-953e-497f-bd83-e4b50d295df9" />" width="70%">
+  <img src="https://github.com/user-attachments/assets/fd1989a8-953e-497f-bd83-e4b50d295df9" />"
 </p>
 
 ## Tech stack
