@@ -20,8 +20,6 @@
 - [Usage](#usage)
 - [Deployment](#deployment-on-streamlit-community-cloud)
 - [Future Improvements](#future-improvements)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ---
@@ -75,14 +73,16 @@ The `title` and `body` columns are combined into a single `review_text` field fo
 ### Rating Sentiment Distribution
 
 The dataset is **imbalanced**: Positive reviews dominate, while Neutral reviews are the minority class. This is why F1-score (not just accuracy) is used to compare models.
-<img width="621" height="307" alt="image" src="https://github.com/user-attachments/assets/888109ab-e99c-4995-b038-3c9cd86f0da1" />
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/888109ab-e99c-4995-b038-3c9cd86f0da1" />" width="70%">
+</p>
 
 ### Overall Word Cloud
 
 Frequent terms such as *phone*, *camera*, *battery*, *performance* and *price* show which product aspects customers talk about most.
-<img width="621" height="307" alt="image" src="https://github.com/user-attachments/assets/09175901-8d65-4284-a0fb-5828f444b9e4" />
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/09175901-8d65-4284-a0fb-5828f444b9e4" />" width="70%">
+</p>
 
 ### Rating-based vs. VADER sentiment
 
@@ -93,8 +93,9 @@ Frequent terms such as *phone*, *camera*, *battery*, *performance* and *price* s
 | **Positive** | 45  | 17 | 667 |
 
 VADER agrees well on clearly positive and negative reviews but struggles with mixed or neutral reviews, which motivated training a supervised model on the rating-based labels.
-<img width="621" height="307" alt="image" src="https://github.com/user-attachments/assets/897030dc-7744-4ff9-9ad9-bd8b9408c0c8" />
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/897030dc-7744-4ff9-9ad9-bd8b9408c0c8" /> width="70%">
+</p>
 ##  Methodology
 
 ```
@@ -132,7 +133,10 @@ Classical machine-learning models Logistic Regression,Naive Bayes,Linear SVM wit
 >  **Selected model: Linear SVM**
 
 Linear SVM was chosen as the final model based on **F1-score and the other evaluation metrics**. BERT epochs is decreased to 3,so it is fine tunning and increasing the epochs is not done because it is **high computational cost** (training time, memory, and inference latency) makes it a poor fit for a lightweight, freely hosted app. Linear SVM delivers competitive performance at a tiny fraction of the cost.
-<img width="738" height="393" alt="image" src="https://github.com/user-attachments/assets/fd1989a8-953e-497f-bd83-e4b50d295df9" />
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fd1989a8-953e-497f-bd83-e4b50d295df9" />" width="70%">
+</p>
 
 ## Tech stack
 
