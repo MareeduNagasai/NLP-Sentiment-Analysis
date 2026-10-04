@@ -3,7 +3,7 @@
 **Classify customer reviews as Positive, Neutral or Negative using NLP, TF-IDF and Machine Learning, served through an interactive Streamlit app.**
 
 ###  [Live Demo on Streamlit Community Cloud](#)
----
+https://nlp-sentiment-analysis-sie2nvgz36s5tudmk8f5hx.streamlit.app/
 
 ##  Table of Contents
 
@@ -204,8 +204,8 @@ streamlit run app.py
 
 ##  Contact
 
-**NAME: MAREEDU NAGA SAI**               Gmail:nagasaimareedu45@gmail.com
-LinkedIn :linkedin.com/in/mareedu-naga-sai-981019378· GitHub:https://github.com/MareeduNagasai
+  **NAME: MAREEDU NAGA SAI**                                   Gmail:nagasaimareedu45@gmail.com
+  LinkedIn :linkedin.com/in/mareedu-naga-sai-981019378·        GitHub:https://github.com/MareeduNagasai
 
 Project Link:
 https://github.com/MareeduNagasai/NLP-Sentiment-Analysis
