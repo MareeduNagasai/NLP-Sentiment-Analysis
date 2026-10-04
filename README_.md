@@ -40,7 +40,6 @@ Sentiment labels are derived from star ratings:
 
 ##  Live Demo
 
- **[Open the app](#)**
 ##  Features
 
 -  **Sentiment-aware preprocessing**: keeps negation words (`not`, `never`, `no`, …) so "not good" is not read as "good"
@@ -76,10 +75,14 @@ The `title` and `body` columns are combined into a single `review_text` field fo
 ### Rating Sentiment Distribution
 
 The dataset is **imbalanced**: Positive reviews dominate, while Neutral reviews are the minority class. This is why F1-score (not just accuracy) is used to compare models.
+<img width="747" height="565" alt="image" src="https://github.com/user-attachments/assets/888109ab-e99c-4995-b038-3c9cd86f0da1" />
+
 
 ### Overall Word Cloud
 
 Frequent terms such as *phone*, *camera*, *battery*, *performance* and *price* show which product aspects customers talk about most.
+<img width="621" height="307" alt="image" src="https://github.com/user-attachments/assets/09175901-8d65-4284-a0fb-5828f444b9e4" />
+
 
 ### Rating-based vs. VADER sentiment
 
@@ -90,6 +93,7 @@ Frequent terms such as *phone*, *camera*, *battery*, *performance* and *price* s
 | **Positive** | 45  | 17 | 667 |
 
 VADER agrees well on clearly positive and negative reviews but struggles with mixed or neutral reviews, which motivated training a supervised model on the rating-based labels.
+<img width="725" height="552" alt="image" src="https://github.com/user-attachments/assets/897030dc-7744-4ff9-9ad9-bd8b9408c0c8" />
 
 ##  Methodology
 
@@ -121,29 +125,15 @@ Review length, word count, unique word count, average word length, sentence coun
 
 ### 4. Models compared
 
-Classical machine-learning models on TF-IDF features were compared with a fine-tuned **BERT** model.
+Classical machine-learning models Logistic Regression,Naive Bayes,Linear SVM with TF-IDF and Logistic Regression,Linear SVM with TF-IDF with Eng features and Logistic Regression,Linear SVM with Word2Vec and finally DistilBERT model
 
 ##  Model Performance
 
->  **Selected model: Logistic Regression**
+>  **Selected model: Linear SVM**
 
-Logistic Regression was chosen as the final model based on **F1-score and the other evaluation metrics**. BERT achieved slightly better results, but its **high computational cost** (training time, memory, and inference latency) makes it a poor fit for a lightweight, freely hosted app. Logistic Regression delivers competitive performance at a tiny fraction of the cost.
-| Model | Accuracy | Precision | Recall | F1-score |
-| ----- | :------: | :-------: | :----: | :------: |
-| **Logistic Regression**  | XX.XX | XX.XX | XX.XX | XX.XX |
-| BERT | XX.XX | XX.XX | XX.XX | XX.XX |
-| Other models | XX.XX | XX.XX | XX.XX | XX.XX |
+Linear SVM was chosen as the final model based on **F1-score and the other evaluation metrics**. BERT epochs is decreased to 3,so it is fine tunning and increasing the epochs is not done because it is **high computational cost** (training time, memory, and inference latency) makes it a poor fit for a lightweight, freely hosted app. Linear SVM delivers competitive performance at a tiny fraction of the cost.
+<img width="738" height="393" alt="image" src="https://github.com/user-attachments/assets/fd1989a8-953e-497f-bd83-e4b50d295df9" />
 
-**Why not BERT?**
-
-| | Logistic Regression | BERT |
-| -- | :--: | :--: |
-| Performance | Strong | Slightly higher |
-| Training cost | Seconds | High (GPU recommended) |
-| Inference speed | Milliseconds | Slower |
-| Deployment on free tier |  Easy |  Heavy |
-
-##  Tech Stack
 
 | Category | Tools |
 | -------- | ----- |
@@ -152,7 +142,8 @@ Logistic Regression was chosen as the final model based on **F1-score and the ot
 | Visualisation | Matplotlib, Seaborn, WordCloud |
 | NLP | NLTK (tokenisation, stop-words, WordNet, VADER) |
 | Machine Learning | scikit-learn (TF-IDF, classifiers) |
-| Deep Learning (baseline) | BERT / Hugging Face Transformers |
+| Deep Learning | RNN,LSTM (Word2Vec)|
+|  BERT(baseline) | DistilBERT |
 | Web App | Streamlit |
 | Model persistence | Joblib |
 
@@ -179,37 +170,10 @@ sentiment-analysis/
 - pip
 - Git
 
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/USERNAME/REPO.git
-cd REPO
-
-# 2. (Optional) create a virtual environment
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-```
 
 ### Run the app locally
 
-```bash
 streamlit run app.py
-```
-
-Then open **http://localhost:8501** in your browser.
-
-### Run the notebook
-
-```bash
-pip install jupyter wordcloud nltk seaborn matplotlib pandas openpyxl
-jupyter notebook Sentiment_Analysis_Project.ipynb
-```
-
-The notebook downloads the required NLTK data (`vader_lexicon`, `stopwords`, `wordnet`, `punkt`, `punkt_tab`) on first run.
 
 ##  Usage
 
@@ -223,15 +187,7 @@ The notebook downloads the required NLTK data (`vader_lexicon`, `stopwords`, `wo
 | ----- | ------ |
 | `Battery life is amazing and the camera is superb!` |  POSITIVE |
 | `Worst phone ever. It hangs and the display is poor.` |  NEGATIVE |
-| `It is okay. Nothing special, does the job.` |  NEUTRAL |
-
-## ️ Deployment on Streamlit Community Cloud
-
-1. Push this repository to GitHub (include `app.py`, both `.pkl` files and `requirements.txt`).
-2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
-3. Click **New app** and select your repository, branch (`main`) and main file (`app.py`).
-4. Click **Deploy**.
-5. Copy the generated URL and paste it into the **Live Demo** links at the top of this README.
+| `It is okay. not good,not bad` |  NEUTRAL |
 
 ##  Future Improvements
 
@@ -239,29 +195,13 @@ The notebook downloads the required NLTK data (`vader_lexicon`, `stopwords`, `wo
 - [ ] Handle class imbalance (class weights / SMOTE) to improve Neutral recall
 - [ ] Add multilingual support (Hindi reviews are present in the data)
 - [ ] Aspect-based sentiment (camera, battery, display, price)
-- [ ] Batch prediction from uploaded CSV files
 
-##  Contributing
-
-Contributions, issues and feature requests are welcome!
-
-1. Fork the project
-2. Create your branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-##  License
-
-Distributed under the MIT License. See `LICENSE` for details.
 
 ##  Contact
 
-**Your Name**: your.email@example.com
-LinkedIn: [your-profile](https://linkedin.com/in/your-profile) · GitHub: [@USERNAME](https://github.com/USERNAME)
+**NAME: MAREEDU NAGA SAI**: Gmail:nagasaimareedu45@gmail.com
+LinkedIn:linkedin.com/in/mareedu-naga-sai-981019378· GitHub:https://github.com/MareeduNagasai
 
-Project Link: [https://github.com/USERNAME/REPO](https://github.com/USERNAME/REPO)
-
+Project Link:
+https://github.com/MareeduNagasai/NLP-Sentiment-Analysis
 ---
-
-⭐ **If you found this project useful, please give it a star!** ⭐
