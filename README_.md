@@ -204,8 +204,8 @@ streamlit run app.py
 
 ##  Contact
 
-**NAME: MAREEDU NAGA SAI**: Gmail:nagasaimareedu45@gmail.com
-LinkedIn:linkedin.com/in/mareedu-naga-sai-981019378· GitHub:https://github.com/MareeduNagasai
+**NAME: MAREEDU NAGA SAI**               Gmail:nagasaimareedu45@gmail.com
+LinkedIn :linkedin.com/in/mareedu-naga-sai-981019378· GitHub:https://github.com/MareeduNagasai
 
 Project Link:
 https://github.com/MareeduNagasai/NLP-Sentiment-Analysis
