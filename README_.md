@@ -74,7 +74,7 @@ The `title` and `body` columns are combined into a single `review_text` field fo
 
 The dataset is **imbalanced**: Positive reviews dominate, while Neutral reviews are the minority class. This is why F1-score (not just accuracy) is used to compare models.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/888109ab-e99c-4995-b038-3c9cd86f0da1" />" width="70%">
+  <img src="https://github.com/user-attachments/assets/888109ab-e99c-4995-b038-3c9cd86f0da1" />" 
 </p>
 
 ### Overall Word Cloud
