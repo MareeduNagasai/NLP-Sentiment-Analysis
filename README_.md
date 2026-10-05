@@ -8,7 +8,6 @@ https://nlp-sentiment-analysis-sie2nvgz36s5tudmk8f5hx.streamlit.app/
 ##  Table of Contents
 
 - [About the Project](#about-the-project)
-- [Live Demo](#live-demo)
 - [Features](#features)
 - [Dataset](#dataset)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
@@ -35,8 +34,6 @@ Sentiment labels are derived from star ratings:
 | 4 – 5  |  Positive |
 | 3      |  Neutral |
 | 1 – 2  |  Negative |
-
-##  Live Demo
 
 ##  Features
 
